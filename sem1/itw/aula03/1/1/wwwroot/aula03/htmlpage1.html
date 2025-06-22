@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        {
+            font-family: 'Open-Sans';
+            font-size: 1em;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <header>
+        <h1 style="font-weight:bold; font-size:24px" >Informação pessoal</h1>
+    </header>
+    <form name="PersonData" action="http://192.168.160.36/FormEcho.aspx" method="post">
+        <input type="hidden" name="FormName" value="UserForm" />
+        <fieldset>
+            <legend>
+                Informação Pessoal
+            </legend>
+            <dl>
+                <dt>Curso:</dt>
+                <dd>
+                    <select name="Curso">
+                        <option value:"">--- Selecione um Curso</option>
+                        <option value:"1> Desemprego Profissional</option>
+                        <option value:"2"> Desemprego Autodidata</option>
+                        <option value:"3">Desemprego Amador</option>
+                    </select>
+                </dd>
+                <dt>Nome</dt>
+                <dd>
+                    <input type="text" name="FirstName" placeholder="Nome" />
+                <dt>Sobrenome</dt>
+                <dd>
+                    <input type="text" name="LastName" placeholder="Sobrenome" />
+                </dd>
+                <dt>Palavra-Passe:</dt>
+                <dd>
+                    <input type="password" name="Password" placeholder="Digite a palavra passe" />
+                </dd>
+            </dl>
+
+        </fieldset>
+        <fieldset>
+            <legend>Comentários:</legend>
+            <textarea name="Comments" rows="4" cols="80" placeholder="Insira os seus comentários"></textarea>
+        </fieldset>
+        <fieldset style="width:45%; float:left;">
+            <legend>Meios de transporte</legend>
+            <input type="checkbox" name="vehicle" value="A pé" id="A pé"><label for="A pé">A pé</label><br />
+            <input type="checkbox" name="vehicle" value="De joelhos" id="De joelhos"><label for="De joelhos">De joelhos</label><br />
+            <input type="checkbox" name="vehicle" value="A nado" id="A nado"><label for="A nado">A nado</label>
+        </fieldset>
+        <fieldset style="width:45%; float:right; ">
+            <legend> Cor preferida</legend>
+            <label><input type="radio" name="cor" value="Azul"> Azul</label><br />
+            <input type="radio" name="cor" value="Vermelho" id="vermelho"><label for="vermelho">Vermelho</label><br />
+            <input type="radio" name="cor" value="Amarelo" id="amarelo"><label for="amarelo">Amarelo</label><br />
+        </fieldset>
+        <hr  style="clear:both; " />
+        <p style="display: block; margin: 0 auto">
+            <input name="Button" type="Submit" value="Enviar" /><input type="reset" name="resetBtn" value="Limpar" />
+        </p>
+    </form> 
+
+</body>
+</html>

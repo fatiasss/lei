@@ -1,0 +1,19 @@
+1-A certo
+2-E certo
+3-C//a
+4-E//d?
+5-C - certo
+6-C - certo
+7-B certo
+9-B certo
+10-C certo
+11-C//D
+12-D??//A
+13-C //d
+14-E - certo
+15-b - certo
+16-E - certo
+17-A?B - certo
+18-D - certo
+19-A - certo
+20-E?A

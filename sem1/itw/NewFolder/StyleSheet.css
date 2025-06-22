@@ -1,0 +1,43 @@
+﻿body {
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+.id-sort-btn {
+    border: none; 
+    background: none; 
+    padding: 0; 
+    margin: 0; 
+    cursor: pointer; 
+}
+
+    .id-sort-btn i {
+        font-size: 16px; 
+        color: dodgerblue; 
+    }
+
+    .id-sort-btn:hover i {
+        color: darkblue; 
+    }
+
+    .id-sort-btn:focus {
+        outline: none; 
+    }
+    #map {
+        height: 400px;
+        position:relative
+    }
+.mv-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    z-index: 400;
+}
+.navbar.fixed-bottom {
+    margin-bottom:0px
+}
+    

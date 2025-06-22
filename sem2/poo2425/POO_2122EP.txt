@@ -1,0 +1,69 @@
+
+Alínea 1) ----------------------------------
+
+Evento em 2022-06-24, total=600.0
+	KAYAK sporting activity with 10 participants.
+	'FULL_MENU' for 12 participants.
+
+The best [Aveiro]
+Cool bunch [Viseu]
+Team mates [Coimbra]
+
+
+Events:
+The best [Aveiro]
+*** Evento em 2022-06-24, total=600.0
+	KAYAK sporting activity with 10 participants.
+	'FULL_MENU' for 12 participants.
+*** Evento em 2022-07-10, total=890.0
+	BIKE sporting activity with 15 participants.
+	WINE_TASTING with 20 participants.
+Cool bunch [Viseu]
+*** Evento em 2022-06-25, total=940.0
+	'DRINKS_AND_SNACKS' for 20 participants.
+	ART_MUSEUM with 20 participants.
+Team mates [Coimbra]
+*** Evento em 2022-06-30, total=940.0
+	'LIGHT_BITES' for 20 participants.
+	ARCHITECTURAL_TOUR with 10 participants.
+	RIVER_TOUR with 10 participants.
+
+
+Alínea 2) ----------------------------------
+
+A2: CLIENTES COM EVENTOS
+Arrisca Tudo [Costa Nova]
+
+Régua e Esquadro [Espinho]
+
+Malta da Ria [Aveiro]
+
+Tudo Bons Rapazes [Águeda]
+
+Malta da Ria [Aveiro]
+
+
+A2: LISTA DE PRÓXIMOS EVENTOS ORDENADOS POR DATA
+Evento em 2022-07-01, total=752.0
+	ART_MUSEUM with 16 participants.
+	'LIGHT_BITES' for 16 participants.
+
+Evento em 2022-07-01, total=880.0
+	HIKING sporting activity with 16 participants.
+	'DRINKS_AND_SNACKS' for 16 participants.
+
+Evento em 2022-07-11, total=1561.0
+	RIVER_TOUR with 23 participants.
+	BOWLING sporting activity with 16 participants.
+	'DRINKS_AND_SNACKS' for 23 participants.
+
+Evento em 2022-07-13, total=880.0
+	HIKING sporting activity with 16 participants.
+	'DRINKS_AND_SNACKS' for 16 participants.
+
+Evento em 2022-07-22, total=2120.0
+	HIKING sporting activity with 28 participants.
+	BIKE sporting activity with 21 participants.
+	'FULL_MENU' for 26 participants.
+
+

@@ -1,0 +1,79 @@
+Trabalho
+
+W = F * delta_t (força constante)
+W = integralC(F dr) - integral no caminho c (x0, x1) em ordem ao deslocamento da força (força variável)
+W = delta_EnergiaCinética
+----------------------------------------------
+
+Forças
+
+Fx = - dEp/dx , para forças conservativas
+
+
+P = m*g
+Fg = -G * ((m1*m2)/(abs(r)**2)) * r/abs(r)
+F_elast = -k*r
+Fres_ar = -m*D*abs(v)*v => D é g/(vt**2) ou é dado
+Fres_ar = Cres/2 * rho_ar * v**2
+F_Magnus = A/2 * rho_ar * w x v => cross product do vetor rotação e velocidade
+
+
+F_elet = -k * ((q1*q2)/(abs(r)**2)) * r/abs(r)
+F_eletCamp = q * E
+
+-------------------------------------------------------
+
+Energia
+
+
+
+Ecin = (1/2)*m*v**2
+Epg = m*g*y
+Epe = 1/2 * k * x**2
+
+--------------------------------------------------------
+
+Potência
+
+P = F*v
+
+--------------------------------------------------------
+
+Momento
+
+delta_momento = integral(F dt)|x0,x1 
+
+momento = m * v
+
+O momento total é constante se o sistema não tem forças externas
+
+----------------------------------------------------------
+
+Oscilações
+
+Fx = -kx
+
+d^2x/dt^2 ("ax") = -k*x/m 
+
+x(t)= A * cos(sqrt(k/m)* t + phi)
+v(t)= -A * sqrt(k/m) * sin(sqrt(k/m)* t + phi)
+
+d^2 theta/dt^2 = -g * theta/l - L comprimento do arco
+
+T = 2pi * sqrt/(m/k)
+
+f = 1/T
+w = sqrt(k/m)
+
+Ep = 1/2 * m * w**2 * x**2
+
+Amortecido
+
+Fx = -kx - b*vx
+ 
+b = 2*m*w0 => para b crítico, em que w0 é a sqrt(k/m) sem amortecimento
+
+A(t) = A * e**(-b*t/2m)
+
+x(t) = A(t)*cos(w*t + phi)
+v(t) = -A(t) * (w*sin(w*t + phi) + (b/(2m))*cos(w*t + phi))

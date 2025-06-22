@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="../lib/font-awesome/dist/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Calculadora</title>
+    <style>
+        .btn {
+            height:50px;
+            width:100%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="container text-center" style=" border: 1px solid">
+        <div class="row" style="height:40px" id="textbox">
+            <div class="col-12">
+                <p id="res"></p>
+            </div>
+        </div>
+        <div class="container" style="border: 1px solid;">
+            <div class="row">
+                <div class="col-3" id="button1c">
+                    <button class="btn btn-secondary" id="button1" value="1" onclick="addNumber()">1</button>
+                </div>
+                <div class="col-3" id="button2c">
+                    <button class="btn btn-secondary" id="button2" value="2" onclick="addNumber()">2</button>
+                </div>
+                <div class="col-3" id="button3c">
+                    <button class="btn btn-secondary" id="button3" value="3" onclick="addNumber()">3</button>
+                </div>
+                <div class="col-3" id="buttonplusc">
+                    <button class="btn btn-secondary" id="buttonplus" value="+" onclick="addOperation()">+</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="button4c">
+                    <button class="btn btn-secondary" id="button4" value="4" onclick="addNumber()">4</button>
+                </div>
+                <div class="col-3" id="button5c">
+                    <button class="btn btn-secondary" id="button5" value="5" onclick="addNumber()">5</button>
+                </div>
+                <div class="col-3" id="button6c">
+                    <button class="btn btn-secondary" id="button6" value="6" onclick="addNumber()">6</button>
+                </div>
+                <div class="col-3" id="buttonminusc">
+                    <button class="btn btn-secondary" id="buttonminus" value="-" onclick="addOperation()">-</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="button7c">
+                    <button class="btn btn-secondary" id="button7" value="7" onclick="addNumber()">7</button>
+                </div>
+                <div class="col-3" id="button8c">
+                    <button class="btn btn-secondary" id="button8" value="8" onclick="addNumber()">8</button>
+                </div>
+                <div class="col-3" id="button9c">
+                    <button class="btn btn-secondary" id="button9" value="9" onclick="addNumber()">9</button>
+                </div>
+                <div class="col-3" id="buttontimes">
+                    <button class="btn btn-secondary" id="buttontimes" value="*" onclick="addOperation()">*</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="buttonCc">
+                    <button class="btn btn-danger" id="buttonC" value="C" onclick="clearB()">C</button>
+                </div>
+                <div class="col-3" id="button0c">
+                    <button class="btn btn-secondary" id="button0" value="0" onclick="addNumber()">0</button>
+                </div>
+                <div class="col-3" id="buttonequal">
+                    <button class="btn btn-info" id="buttonequal" value="=" onclick="calcular()">=</button>
+                </div>
+                <div class="col-3" id="buttondivide">
+                    <button class="btn btn-secondary" id="buttondivide" value="/" onclick="addOperation()">/</button>
+                </div>
+            </div>
+        </div>
+        </div>
+           
+
+
+    <!-- Bootstrap Bundle -->
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var start = true
+        var controlovar = 1
+        var op1 = "";
+        var op2 = "";
+        var operacao = "";
+        var res = document.getElementById("res")
+        function addNumber() {
+            var x = event.target.value;
+            if (controlovar === 1 && op2 === "") {
+                op1 += x
+                res.innerHTML += String(x)
+            }
+            else { 
+               if (controlovar === 2) {
+                   op2 += x
+                   res.innerHTML += String(x)
+                }
+            }
+        }
+        function addOperation() {
+            if (controlovar === 1 && operacao === "") {
+                operacao = event.target.value
+                controlovar = 2
+                res.innerHTML += String(operacao)
+            }
+        }
+        function calcular() {
+            op1 = parseFloat(op1)
+            op2 = parseFloat(op2)
+            switch (operacao) {
+                case ("+"):
+                    res.innerHTML = op1 + op2
+                    break
+                case ("-"):
+                    res.innerHTML = op1 - op2
+                    break
+                case ("*"):
+                    res.innerHTML = op1 * op2
+                    break
+                case ("/"):
+                    res.innerHTML = op1 / op2
+                    break
+            }
+            controlovar = 1
+            op1 = parseFloat(res.innerHTML)
+            op2 = ""
+            operacao=""
+        }
+        function clearB() {
+            controlovar = 1
+            op1 = "";
+            op2 = "";
+            operacao = "";
+            res.innerHTML = "";
+        }
+    </script>
+</body>
+</html>

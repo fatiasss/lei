@@ -1,0 +1,26 @@
+1-A
+2-E
+3-
+4-E
+5-C
+6-C
+7-B
+9-B
+10-C
+11-D
+12-D
+13-C
+14-E
+15-B
+16-E
+17-A
+18-D
+19-A
+20-E
+21-
+a- A utilização de técnicas de análise de requisitos centradas na utilização, em contraste às técnicas product-centric, permite avaliar as funcionalidades que serão mais valorizadas e utilizadas pelos consumidores finais, bem como permite uma vista mais clara e específica destes requisitos.
+b- Uma user story pode ser considerada uma parte(slice) de um caso de utilização. Enquanto um caso de utilização exprime um objetivo que leva o cliente a utilizar o software, a user story é uma parte das funcionalidades que o cliente quer poder fazer para cumprir esse objetivo do caso de utilização.
+   Estas user stories são uteis na gerência das tarefas diárias de uma equipa de engenharia de software, em regime ágil, para decidir as tarefas que serão realizadas em cada dia, tornando estes objetivos mais claros. Apenas colocar um grande objetivo para ser atingido à equipa torna este processo mais dificil de realizar, por falta de organização, no dia a dia, mas 
+   os casos de utilização continuam a ser úteis para gerir as funcionalidades implementadas em cada iteração, numa escala de tempo maior.
+
+

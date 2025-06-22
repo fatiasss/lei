@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="../lib/font-awesome/dist/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Calculator</title>
+    <style>
+        p {font-size:40px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p><i class="fa fa-calculator"></i><b>Calculator</b></p>
+    </div>
+    <div class="container">
+        <div class="row g-2 justify-content-center">
+            <div class=" col col-md-3">
+                <select class="form-select" aria-label="Operação" id="operation">
+                    <option selected value="1">Soma</option>
+                    <option value="2">Subtração</option>
+                    <option value="3">Multiplicação</option>
+                    <option value="4">Divisão</option>
+                    <option value="5">Resto da Divisão</option>
+                </select>
+            </div>
+            <div class=" col col-md-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="n1" aria-label="Username" id="n1">
+                </div>
+            </div>
+            <div class=" col col-md-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="n2" aria-label="Username" id="n2">
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container align-content-center">
+        <div class="container justify-content-center">
+            <input type="button" class="btn btn-info" value="Submit" onclick="calculate()">
+        </div>
+        <div class="container justify-content-center ">
+            <input type="button" class="btn btn-info" value="Clear" onclick="clearField()">
+        </div>
+    </div>
+   
+    <div>
+        <p id="result" class="mt-3 text-center"></p>
+    </div>
+    <script>
+        function soma(x, y) {
+            return x + y
+        }
+        function subtração(x, y) {
+            return x - y
+        }
+        function multiplicação(x, y) {
+            return x * y
+        }
+        function divisão(x, y) {
+            return x / y
+        }
+        function resto(x, y) {
+            return x % y
+        }
+        function calculate() {
+            const n1 = parseFloat(document.getElementById('n1').value);
+            const n2 = parseFloat(document.getElementById('n2').value);
+            const operation = document.getElementById('operation').value;
+            let result;
+
+            switch (operation) {
+                case '1':
+                    result = soma(n1, n2);
+                    break;
+                case '2':
+                    result = subtração(n1, n2);
+                    break;
+                case '3':
+                    result = multiplicação(n1, n2);
+                    break;
+                case '4':
+                    result = divisão(n1, n2);
+                    break;
+                case '5':
+                    result = resto(n1, n2);
+                    break;
+                default:
+                    result = "Operação inválida";
+            }
+
+            document.getElementById('result').textContent = "Resultado: " + result;
+            console.log(result)
+        }
+        function clearField() {
+            document.getElementById('n1').value = ''
+            document.getElementById('n2').value = ''
+            document.getElementById('result').textContent = ''
+        }
+    </script>
+</body>
+</html>

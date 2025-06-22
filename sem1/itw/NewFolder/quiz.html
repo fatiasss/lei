@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Games 2024 Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #0056b3;
+            }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Olympic Games 2024 Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. Where were the 2024 Olympic Games held?</p>
+                <label><input type="radio" name="q1" value="a"> Tokyo</label><br>
+                <label><input type="radio" name="q1" value="b"> Paris</label><br>
+                <label><input type="radio" name="q1" value="c"> Los Angeles</label><br>
+            </div>
+            <div class="question">
+                <p>2. What new sport was introduced in the 2024 Olympics?</p>
+                <label><input type="radio" name="q2" value="a"> Breakdancing</label><br>
+                <label><input type="radio" name="q2" value="b"> Skateboarding</label><br>
+                <label><input type="radio" name="q2" value="c"> Surfing</label><br>
+            </div>
+            <div class="question">
+                <p>3. How many sports were featured in the 2024 Olympics?</p>
+                <label><input type="radio" name="q3" value="a"> 28</label><br>
+                <label><input type="radio" name="q3" value="b"> 32</label><br>
+                <label><input type="radio" name="q3" value="c"> 33</label><br>
+            </div>
+            <div class="question">
+                <p>4. Which country won the most gold medals in the 2024 Olympics?</p>
+                <label><input type="radio" name="q4" value="a"> USA</label><br>
+                <label><input type="radio" name="q4" value="b"> China</label><br>
+                <label><input type="radio" name="q4" value="c"> France</label><br>
+            </div>
+            <div class="question">
+                <p>5. What was the official slogan of the 2024 Olympics?</p>
+                <label><input type="radio" name="q5" value="a"> "Inspire a Generation"</label><br>
+                <label><input type="radio" name="q5" value="b"> "Games Wide Open"</label><br>
+                <label><input type="radio" name="q5" value="c"> "Faster, Higher, Stronger"</label><br>
+            </div>
+            <div class="question">
+                <p>6. What iconic landmark was used for the opening ceremony in Paris?</p>
+                <label><input type="radio" name="q6" value="a"> Eiffel Tower</label><br>
+                <label><input type="radio" name="q6" value="b"> Louvre Museum</label><br>
+                <label><input type="radio" name="q6" value="c"> Champs-Élysées</label><br>
+            </div>
+            <div class="question">
+                <p>7. Who lit the Olympic flame at the 2024 opening ceremony?</p>
+                <label><input type="radio" name="q7" value="a"> A famous French athlete</label><br>
+                <label><input type="radio" name="q7" value="b"> A child from Paris</label><br>
+                <label><input type="radio" name="q7" value="c"> The President of France</label><br>
+            </div>
+            <div class="question">
+                <p>8. How many countries participated in the 2024 Olympics?</p>
+                <label><input type="radio" name="q8" value="a"> 200</label><br>
+                <label><input type="radio" name="q8" value="b"> 206</label><br>
+                <label><input type="radio" name="q8" value="c"> 210</label><br>
+            </div>
+            <div class="question">
+                <p>9. What was the mascot of the 2024 Olympics?</p>
+                <label><input type="radio" name="q9" value="a"> A rooster</label><br>
+                <label><input type="radio" name="q9" value="b"> A Phrygian cap</label><br>
+                <label><input type="radio" name="q9" value="c"> A lion</label><br>
+            </div>
+            <div class="question">
+                <p>10. Which event was held on the Seine River during the 2024 Olympics?</p>
+                <label><input type="radio" name="q10" value="a"> Marathon swimming</label><br>
+                <label><input type="radio" name="q10" value="b"> Rowing</label><br>
+                <label><input type="radio" name="q10" value="c"> Triathlon</label><br>
+            </div>
+            <button type="button" id="confettiButton" onclick="checkAnswers()">Submit</button>
+            <button class="btn btn-secondary"><a href="Index.html">Back</a></button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: 'b',
+                q2: 'a',
+                q3: 'c',
+                q4: 'a',
+                q5: 'b',
+                q6: 'a',
+                q7: 'a',
+                q8: 'b',
+                q9: 'b',
+                q10: 'c'
+            };
+
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+            const result = document.getElementById('result');
+
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                const userAnswer = form.elements[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            result.textContent = `You scored ${score} out of ${Object.keys(answers).length}!`;
+        }
+
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function launchConfetti() {
+            confetti({
+                angle: randomInRange(55, 125),
+                spread: randomInRange(50, 70),
+                particleCount: randomInRange(50, 100),
+                origin: { y: 0.6 },
+            });
+        }
+
+        document.getElementById("confettiButton").addEventListener("click", launchConfetti);
+
+    </script>
+</body>
+</html>
+

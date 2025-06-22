@@ -1,0 +1,62 @@
+Erros de Euler:
+    Erro local (de truncatura):E (1/n!)*deriv(n)(vx)*dt**n , até n=4 é suficiente.
+
+    Erro global: N* Elocal = t/dt * dt**n = t*dt**n-1
+    Para o erro de euler é : (tf- t0)*dt , em que tf-t0 é o intervalo de tempo e dt é o passo de tempo.
+
+
+
+Relações de x e y:
+
+Linear- y = mx + b, em que m é declive e b é y na origem
+Potência- y = c * x**m
+Exponencial - y = b * e**(rt), em que b é o y na origem e r o "declive"
+
+
+
+resistência do ar (aceleração) - (g/vt**2)*abs(v)*vy , em que vy é a velocidade instantânea no eixo,vt a velocidade máxima e v o vetor velocidade em todos os ângulos.
+y(t) com resistência do ar (v0=0) - ((vt**2)/g)*sy.log(sy.cosh((g*t)/vt))
+y(t) com resistência do ar (v0!=0) - ((vt**2)/g)*sy.log(sy.cosh((g*t)/vt)*sy.cosh(v0/vt)
+
+nao esquecer que se tem vmax, isso já está contemplado nas expressoes yt e at, não é preciso colocar essa condição
+
+a, b vetores
+
+Produto escalar/interno:
+    a.b= abs(a)*abs(b)*cos(theta), em que theta é o ângulo entre eles
+
+    se a=(ax, ay, az) e b=(bx,by,bz):
+    a.b = ax*bx + ay*by + az*bz, um escalar
+
+Produto externo:
+a x b = abs(a)*abs(b)*sin(theta)*p, em que p é um vetor perpendicular a ambos os vetores
+
+a x b = | i  j  k|
+        |ax ay az| --> determinante, em que i, j e k são os vetores das coordenadas
+        |bx by bz|
+
+
+Forças:
+
+Força gravítica:
+
+    G* (m*M)*r/(abs(r**2)), em que G é a constante gravitacional, m e M as duas massas, o r inferior a sua distância, e o r superior o vetor unitário da sua direção
+
+Força elétrica:
+    K* (q*Q)/d**2 , em que K é a constante de Coulomb, q e Q as duas cargas e d a distância entre elas
+
+Força magnética:
+    q * v * B , em que q é uma carga, v o seu vetor de movimento e B o campo magnético
+
+Algarismos significativos:
+
+    -algarismos de 1 a 9 sempre são significativos;
+
+    -todos os zeros à esquerda são desconsiderados;
+
+    -todos os zeros à direita são considerados algarismos significativos;
+
+    -todos os zeros entre 1 e 9 são significativos.
+Em todas as operações fica o mínimo de algarismos significativos dos operandos.
+
+

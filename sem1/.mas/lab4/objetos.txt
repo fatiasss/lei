@@ -1,0 +1,101 @@
+Cliente - 
+Nome - Joao Pinto
+Nif - ?????
+
+Pedido- 
+Cliente- Joao Pinto
+-opcoes - lista de pratos
+-hora -- 2020-11-22 T- 21:08:45
+Custo- 200.0
+Calorias- 95.4
+
+Ementa-
+nome - Menu Primavera~
+local - Loja 1
+dia- 2020-11-22 T21:08:45
+nr_pratos_na_ementa: 4
+-pratos
+
+Prato-
+
+1---
+nome- Dieta n.1
+contagem ingredientes- 2
+preço- 200.0
+totalCalorias-57.7
+totalProteinas-50.6
+totalPeso-310.0
+
+Alimentos-
+1-
+:cereal
+nome-Milho
+peso- 11.0
+calorias-32.4
+proteinas-19.3
+2-
+:peixe
+tipo- congelado
+peso- 200.0
+calorias- 25.3
+proteinas- 31.3
+
+2---
+nome- Combinado n.2
+contagem ingredientes- 2
+preço-100.0
+totalCalorias-47.7
+totalProteinas-50.6
+totalPeso-350.0
+
+Alimentos-
+:peixe
+tipo- congelado
+peso- 200.0
+calorias- 25.3
+proteinas- 31.3
+:legume
+nome- Couve Flor
+peso-150.0
+calorias-22.4
+proteinas-21.3
+
+3---
+nome- Vegetariano n.3
+contagem ingredientes- 2
+preço-120.0
+totalCalorias-64.8
+totalProteinas-38.6
+totalPeso-220.0
+
+Alimentos-
+:Cereal
+nome- Milho
+peso- 110.0
+calorias- 32.4
+proteinas-19.3
+:Cereal
+nome- Milho
+peso- 110.0
+calorias- 32.4
+proteinas-19.3
+
+4---
+nome-Combinado n.4
+contagem ingredientes- 2
+preço-100.0
+totalCalorias-64.8
+totalProteinas-38.6
+totalPeso-220.0
+
+Alimentos-
+:Cereal
+nome- Milho
+peso- 110.0
+calorias- 32.4
+proteinas-19.3
+:Cereal
+nome- Milho
+peso- 110.0
+calorias- 32.4
+proteinas-19.3

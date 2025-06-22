@@ -1,0 +1,31 @@
+Cliente--
+
+Criar Conta
+Criar perfil do cão
+
+
+Ver perfil do cão
+Editar perfil do cão
+Procurar clinicas disponíveis
+Marcar consulta numa clínica 
+Subscrever ao serviço da The Farmer´s Dog
+Procurar petsitters
+Contratar petsitters
+Falar com o Petsitter
+Classificar petsitters
+
+Clínica--
+
+Propor parceria (envolve verificação com a dgav)
+Editar informação no perfil de cada cão
+Estabelecer horários de consulta disponíveis
+Editar requerimentos nutricionais do cão
+
+
+PetSitter--
+
+Editar disponibilidade
+Editar perfil de Petsitter
+Aceitar ou Rejeitar Pedidos
+Falar com o Cliente por mensagem
+

@@ -1,0 +1,16 @@
+Classes:
+Restaurante 
+Cliente (morada de entrega) (ncontrib) (telemovel) (morada preferida) (endereço email)
+Pessoa
+Promoção
+Estado Encomenda?
+Funcionário
+Pedido
+Item (Margarita, Margarita Vegan, Garden Hot & Honey, Cheeseham)
+Ingrediente
+Entrega (takeway ou entrega normal) (hora preferida) (tempo de entrega) (itens) (preço itens + rate de entrega)
+Estafeta
+Pagamento (online(mbway ou easypay) ou irl(numerario ou cartão) (preço a pagar)
+Recibo
+Menu
+https://invoicexpress.com/elementos-obrigatorios-faturas/

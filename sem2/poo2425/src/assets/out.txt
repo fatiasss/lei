@@ -1,0 +1,7 @@
+Id: 1;Name: Maria Joaquina;Phone: 911234567;Email: joaquina@ua.pt;Birthdate: 1985-01-01
+Id: 2;Name: João Miguel;Phone: 911234568;Email: joao@ua.pt;Birthdate: 1988-01-01
+Id: 3;Name: Maria Santos;Phone: 918765432;Email: maria@ua.pt;Birthdate: 1998-03-20
+Id: 4;Name: Pedro Costa;Phone: 925678901;Email: pedro@ua.pt;Birthdate: 2002-07-05
+Id: 5;Name: Ana Sousa;Phone: 911234567;Email: ana@ua.pt;Birthdate: 1995-11-30
+Id: 6;Name: Rui Pereira;Phone: 919876543;Email: rui@ua.pt;Birthdate: 1990-02-15
+Id: 7;Name: João Silva;Phone: 912345678;Email: joao@ua.pt;Birthdate: 2000-10-12

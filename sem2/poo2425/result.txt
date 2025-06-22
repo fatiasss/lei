@@ -1,0 +1,5 @@
+1;Lisboa, Portugal;Londres, Inglaterra;5;825.0;
+
+1;Lisboa, Portugal;Londres, Inglaterra;5;825.0;
+2;Porto, Portugal;Tokyo, Japão;15;2250.0;
+

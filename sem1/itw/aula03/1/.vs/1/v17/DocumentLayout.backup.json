@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jo\u00E3o Farias\\Desktop\\lei\\itw\\aula03\\1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA988FF-D4AD-43D1-8B29-63B15998EEED}|1\\1.csproj|c:\\users\\jo\u00E3o farias\\desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA988FF-D4AD-43D1-8B29-63B15998EEED}|1\\1.csproj|solutionrelative:1\\wwwroot\\aula03\\htmlpage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBA988FF-D4AD-43D1-8B29-63B15998EEED}|1\\1.csproj|c:\\users\\jo\u00E3o farias\\desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BBA988FF-D4AD-43D1-8B29-63B15998EEED}|1\\1.csproj|solutionrelative:1\\wwwroot\\aula03\\htmlpage1.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "htmlpage1.html",
+              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Farias\\Desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage1.html",
+              "RelativeDocumentMoniker": "1\\wwwroot\\aula03\\htmlpage1.html",
+              "ToolTip": "C:\\Users\\Jo\u00E3o Farias\\Desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage1.html",
+              "RelativeToolTip": "1\\wwwroot\\aula03\\htmlpage1.html",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAEIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T08:51:30.497Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "htmlpage.html",
+              "DocumentMoniker": "C:\\Users\\Jo\u00E3o Farias\\Desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage.html",
+              "RelativeDocumentMoniker": "1\\wwwroot\\aula03\\htmlpage.html",
+              "ToolTip": "C:\\Users\\Jo\u00E3o Farias\\Desktop\\lei\\itw\\aula03\\1\\1\\wwwroot\\aula03\\htmlpage.html",
+              "RelativeToolTip": "1\\wwwroot\\aula03\\htmlpage.html",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAA8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-08T08:19:46.49Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

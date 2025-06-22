@@ -1,0 +1,21 @@
+$add = 0
+$remove = 0
+
+# Capture the output of the git log command
+$logOutput = git log --author=Author --pretty=tformat: --numstat 
+
+# Check if any output exists
+if ($logOutput) {
+    $logOutput | ForEach-Object {
+        if ($_ -notmatch '^-') {
+            $fields = $_ -split '\s+'
+            if ($fields.Count -ge 2) {
+                $add += [int]$fields[0]
+                $remove += [int]$fields[1]
+            }
+        }
+    }
+    Write-Output "$add $remove"
+} else {
+    Write-Output "No data found for the specified author."
+}

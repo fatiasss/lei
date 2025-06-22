@@ -1,0 +1,22 @@
+
+Alinea 1) ----------------------------------
+
+Livro 1 tem 4 autores
+Livro 2 tem 3 autores
+TOTAL DE PRODUTOS DO MERCADO: 0
+Descricao de electr1 :Frigorifico:Bosch/XPTO
+AUTORES DE Livro 1: [Autor 1 (2000-)Autor 2 (2000-)Autor 3 (2010-)Autor 4 (2018-]
+TOTAL DE PRODUTOS DO MERCADO: 557
+Unidades insuficientes! So tem 2 em stock.
+Vendidos 100 unidades de "Livro 2". Passou a ter 350
+TOTAL DE PRODUTOS DO MERCADO: 457
+
+Eletrodoméstico: Televisor:LG/MODEL XEletrodoméstico: Fogao:AEG/XYZEletrodoméstico: Frigorifico:Bosch/XPTOLivro Livro 2Telemóvel MOTOROLA/XWZ Model ALivro Livro 1
+
+Informacao sobre Frigorifico:
+Eletrodoméstico: Frigorifico:Bosch/XPTO
+Informacao sobre Telemovel:
+Telemóvel MOTOROLA/XWZ Model A
+
+Alinea 2) ----------------------------------
+
