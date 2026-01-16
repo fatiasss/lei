@@ -1,0 +1,7 @@
+Sweet Stacks
+
+Um sistema de gestão de receitas. 
+Deve conseguir armazenar receitas, bem como os seus ingredientes e outras informações de preparo. 
+Para além disso, para um dado utilizador, quando este introduz os seus requisitos para uma receita (que ingredientes tem disponível, quantos podem faltar, restrições alimentares, tipo de culinária...) deve devolver as receitas adequadas.
+Deve permitir também a um utilizador guardar e avaliar as receitas que desejar, e, com estas receitas, planear refeições e fazer listas de compras para ingredientes em falta.
+O objetivo deste sistema é permitir aos utilizadores uma forma mais fácil e eficaz de planear refeições e obter receitas.

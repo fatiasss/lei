@@ -1,0 +1,50 @@
+Flight
+Number,Airline,Weekdays
+Chaves Candidatas
+Number
+Chave Primária
+Number
+
+FlightLeg
+
+FlightNumber, LegNumber,Dept_Airport, Dept_Scheduled_Time, Arr_Airport, Arr_Scheduled_Time, 
+Chaves Candidatas
+[FlightNumber, LegNumber] (PK), Dept_Airport (FK), Arr_Airport(FK), FlightNumber(FK), LegNumber
+Chave Primária
+[FlightNumber, LegNumber]
+
+Airport
+Airport_code, city, state, name
+
+
+Leg Instance
+FlightLeg_FlightNumber, FlightLeg_LegNumber, Date, No_of_avail_seats, LegNumber,Dept_Airport, Dept_Scheduled_Time, Arr_Airport, Arr_Scheduled_Time
+Chaves Candidatas
+[FlightLeg_FlightNumber, FlightLeg_LegNumber, Date] (PK), Dept_Airport(FK), Arr_Airport(FK), AirPlane_Id(FK)
+
+
+Airplane
+Airplane_Id, Total_no_of_seats, AirPlane_Type
+
+
+
+
+Can_Land
+AirplaneType, Airport_Id
+
+
+AirPlaneType
+Type_name, max_seats, Company
+
+Seat
+Seat_No, LegInstance_FlightLeg_FlightNumber, Leg_Instance_FlightLeg_Leg_No, Leg_Instance_Date, Reservation_Customer_Name, Reservation_Cphone
+Chaves Candidatas
+[Seat_No, LegInstance_FlightLeg_FlightNumber, Leg_Instance_FlightLeg_Leg_No, Leg_Instance_Date] (PK), Reservation_Customer_Name(FK), Reservation_Cphone(FK)
+
+
+
+Fare
+Code, Flight_number, Amount, Restrictions
+
+Chaves Candidatas
+[Code, Flight_number](PK)

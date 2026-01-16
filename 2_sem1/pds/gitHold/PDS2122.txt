@@ -1,0 +1,95 @@
+C:\Users\João Farias\Desktop\lei\2_sem1\pds\gitHold
+2026/01/07 17:36:54
+
+Alínea a) ----------------------------------
+
+Ref: C11 - CargoShip [code=S732, name=SoPingas, cargo=20.2]
+Ref: P35 - PassengerShip [code=S185, name=PDS All aboard, passengers=80]
+Ref: C02 - CargoShip [code=S101, name=Quebra Molas, cargo=155.5]
+Ref: T01 - Container Ship with 3 ships. Total Passengers Capacity : 85
+	PassengerShip [code=S201, name=Mini Ferry, passengers=30]
+	PassengerShip [code=S203, name=Tiny Boat, passengers=20]
+	PassengerShip [code=S204, name=Little Vessel, passengers=35]
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=18.8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=25]
+Ref: T02 - Container Ship with 2 ships. Total Passengers Capacity : 90
+	PassengerShip [code=S301, name=Express, passengers=50]
+	PassengerShip [code=S302, name=Swift, passengers=40]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=120]
+
+Alínea b) ----------------------------------
+
+Adding passenger ships to container:
+  Add Mini Ferry: true
+  Add Small Cruiser: true
+  Add Tiny Boat: true
+  Add Little Vessel: true
+
+--- All ships in port (including container ship):
+Ref: C11 - CargoShip [code=S732, name=SoPingas, cargo=20.2]
+Ref: P35 - PassengerShip [code=S185, name=PDS All aboard, passengers=80]
+Ref: C02 - CargoShip [code=S101, name=Quebra Molas, cargo=155.5]
+Ref: T01 - Container Ship with 3 ships. Total Passengers Capacity : 85
+	PassengerShip [code=S201, name=Mini Ferry, passengers=30]
+	PassengerShip [code=S203, name=Tiny Boat, passengers=20]
+	PassengerShip [code=S204, name=Little Vessel, passengers=35]
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=18.8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=25]
+Ref: T02 - Container Ship with 2 ships. Total Passengers Capacity : 90
+	PassengerShip [code=S301, name=Express, passengers=50]
+	PassengerShip [code=S302, name=Swift, passengers=40]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=120]
+
+Removing Small Cruiser from container: true
+
+--- Container ship after removal:
+Container Ship with 3 ships. Total Passengers Capacity : 85
+	PassengerShip [code=S201, name=Mini Ferry, passengers=30]
+	PassengerShip [code=S203, name=Tiny Boat, passengers=20]
+	PassengerShip [code=S204, name=Little Vessel, passengers=35]
+
+--- All ships in port with two container ships:
+Ref: C11 - CargoShip [code=S732, name=SoPingas, cargo=20.2]
+Ref: P35 - PassengerShip [code=S185, name=PDS All aboard, passengers=80]
+Ref: C02 - CargoShip [code=S101, name=Quebra Molas, cargo=155.5]
+Ref: T01 - Container Ship with 3 ships. Total Passengers Capacity : 85
+	PassengerShip [code=S201, name=Mini Ferry, passengers=30]
+	PassengerShip [code=S203, name=Tiny Boat, passengers=20]
+	PassengerShip [code=S204, name=Little Vessel, passengers=35]
+Ref: C03 - CargoShip [code=S923, name=Madalena, cargo=18.8]
+Ref: P06 - PassengerShip [code=S078, name=Costeiro, passengers=25]
+Ref: T02 - Container Ship with 2 ships. Total Passengers Capacity : 90
+	PassengerShip [code=S301, name=Express, passengers=50]
+	PassengerShip [code=S302, name=Swift, passengers=40]
+Ref: P54 - PassengerShip [code=S199, name=Bananeiros, passengers=120]
+
+Alínea c) ----------------------------------
+
+--- Testing RiverPort with restrictions ---
+(Max cargo: 10, Max passengers: 10)
+
+Adding valid ships:
+  Add Small Cargo (cargo: 8.5): true
+  Add Tiny Cargo (cargo: 9.9): true
+  Add Small Ferry (passengers: 8): true
+  Add Mini Cruiser (passengers: 10): true
+
+Adding invalid ships (should fail):
+  Add Big Cargo (cargo: 15.0): false
+  Add Large Ferry (passengers: 25): false
+
+Testing exists operation:
+  R001 exists: true
+  R999 exists: false
+
+Removing ship R002:
+  Removed: Tiny Cargo
+
+--- All ships in RiverPort:
+Ref: R004 - PassengerShip [code=R004, name=Mini Cruiser, passengers=10]
+Ref: R003 - PassengerShip [code=R003, name=Small Ferry, passengers=8]
+Ref: R001 - CargoShip [code=R001, name=Small Cargo, cargo=8.5]
+
+--- RiverLogger ---
+All operations (add, exists, remove) have been logged.
+Logger tracks: 4 successful adds, 2 failed adds, 2 exists checks, 1 remove operation

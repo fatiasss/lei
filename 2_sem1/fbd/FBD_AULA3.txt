@@ -1,0 +1,68 @@
+a)
+
+Cliente
+Nif,Nome,Endereço, Nºcarta
+
+Chaves Candidatas
+Nif, nº carta
+Chave primária 
+Nif
+
+Balcão
+Numero, Nome, Endereço
+
+Chaves Candidatas
+Numero
+Chave primária 
+Numero
+
+
+Veículo
+Matrícula, ano, marca, TipoVeiculoCodigo (FK)
+Chaves Candidatas
+Matricula
+Chave primária
+Matrícula
+Chaves Estrangeiras 
+TipoVeiculoCodigo 
+
+Aluguer
+Número, duração, data + Nif_Cliente, N_balcão, Matrícula_veículo
+Chaves Candidatas
+Número(PK), Cliente_NIF(FK), Balcão_número(FK), Veículo_matrícula(FK)
+Chave primária
+Número
+Chaves Estrangeiras
+Cliente_NIF, Balcão_número, Veículo_matrícula
+
+Tipo_Veículo
+Código, arcondicionado, designação
+Chaves candidatas
+Código (PK)	
+Chave primária
+Código
+
+
+Similaridade
+TipoVeiculoCodigo01, TipoVeiculoCodigo02
+Chave Candidata
+TipoVeiculoCodigo01, TipoVeiculoCodigo02 (PK)  => As duas juntas ; TipoVeiculo (FK)
+Chave Primária
+
+
+
+Pesado
+TipoVeiculoCodigo,Peso, Passageiros
+ChavesCandidatas
+TipoVeiculoCodigo(PK),TipoVeiculoCodigo(FK)
+Chave Primária
+TipoVeiculoCodigo(PK)
+
+Ligeiro
+
+TipoVeiculoCodigo,NumLugares,Portas,Combustível
+
+ChavesCandidatas
+TipoVeiculoCodigo(PK),
+Chave Primária
+TipoVeiculoCodigo(PK)

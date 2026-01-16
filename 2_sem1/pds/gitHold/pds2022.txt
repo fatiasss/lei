@@ -1,0 +1,65 @@
+C:\Users\João Farias\Desktop\lei\2_sem1\pds\gitHold
+2026/01/07 16:52:11
+
+Question 1) ----------------------------------
+
+--- All Products :
+pds_estudo.aula13.ex1.Car@5387f9e0
+pds_estudo.aula13.ex1.Van@6e5e91e4
+pds_estudo.aula13.ex1.Motorcycle@2cdf8d8a
+pds_estudo.aula13.ex1.Car@30946e09
+--- Shared Products :
+pds_estudo.aula13.ex1.Motorcycle@2cdf8d8a
+pds_estudo.aula13.ex1.Car@5387f9e0
+pds_estudo.aula13.ex1.Car@30946e09
+
+--- Shared Products :
+pds_estudo.aula13.ex1.Motorcycle@2cdf8d8a
+
+--- All Products :
+pds_estudo.aula13.ex1.Van@6e5e91e4
+pds_estudo.aula13.ex1.Car@30946e09
+pds_estudo.aula13.ex1.Jeep@5cb0d902
+
+Question 2 (output example) ----------------------------------
+
+--- Products from Vector Source:
+pds_estudo.aula13.ex1.Car@46fbb2c1
+pds_estudo.aula13.ex1.Van@1698c449
+pds_estudo.aula13.ex1.Motorcycle@5ef04b5
+pds_estudo.aula13.ex1.Car@5f4da5c3
+
+--- Products from File Source:
+pds_estudo.aula13.ex1.Car@443b7951
+pds_estudo.aula13.ex1.Car@14514713
+pds_estudo.aula13.ex1.Car@69663380
+pds_estudo.aula13.ex1.Van@5b37e0d2
+pds_estudo.aula13.ex1.Van@4459eb14
+pds_estudo.aula13.ex1.Van@5a2e4553
+pds_estudo.aula13.ex1.Van@28c97a5
+pds_estudo.aula13.ex1.Van@6659c656
+pds_estudo.aula13.ex1.Van@6d5380c2
+pds_estudo.aula13.ex1.Van@45ff54e6
+
+Question 3) ----------------------------------
+
+a) shareIt.share("UA0001", u1): true
+b) shareIt.share("UA0001", u2): false
+   u2 is now waiting for this product
+
+c) shareIt.giveBack("UA0001"): true
+   Product returned by u1, automatically assigned to u2
+
+d) shareIt.giveBack("UA0001"): true
+   Product returned by u2
+
+e) shareIt.giveBack("UA0001"): false
+
+--- Test with multiple waiting clients ---
+Share UA0002 with u1: true
+u2 tries to share UA0002: false
+u3 tries to share UA0002: false
+
+Give back UA0002 (should go to u2): true
+Give back UA0002 again (should go to u3): true
+Give back UA0002 one more time: true
