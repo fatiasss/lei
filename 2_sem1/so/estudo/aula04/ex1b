@@ -1,0 +1,5 @@
+#!/bin/bash 
+. $HOME/lei/so/estudo/aula04/ex1
+
+imprime_msg
+print_info

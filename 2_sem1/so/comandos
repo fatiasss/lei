@@ -1,0 +1,4 @@
+sudo ls -l  -R | grep -F conf
+
+find . -iname "*conf*"
+

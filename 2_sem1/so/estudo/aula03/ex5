@@ -1,0 +1,15 @@
+#!/bin/bash 
+# For all the files in a folder, show their properties 
+if ! [[ "$#" -eq 1 ]]; then
+    echo "must provide exactly 1 arg"
+    exit 1;
+fi
+if ! [[ -d "$1" ]]; then
+    echo "must be a directory"
+    exit 1;
+fi
+
+for f in $1/* 
+do 
+   file "$f" 
+done

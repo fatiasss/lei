@@ -1,0 +1,19 @@
+#!/bin/bash 
+function compare_numbers() 
+{ 
+  if [[ $1 -eq $2 ]]; then
+  	return 0;
+  elif [[ $1 -gt $2 ]]; then
+  	return "$1";
+  else
+  	return "$2"
+  fi
+} 
+echo 
+read val1;
+echo 
+read val2;
+compare_numbers "$val1" "$val2";
+comparison="$?"
+if [[ $comparison -eq 0 ]]; then echo "the numbers are equal"; exit 0; fi;
+echo "$comparison"

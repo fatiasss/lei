@@ -1,0 +1,39 @@
+#!/bin/bash 
+# This script checks the existence of a file 
+echo "Checking..." 
+if ! [[ "$#" -eq 1 ]]; then
+	echo "must have 1 arg";
+	exit 1;
+fi
+if [[ -f $1 ]] 
+then 
+ echo "$1 existe." 
+else 
+ echo "$1 não existe" 
+ exit 1;
+fi
+if [[ -d $1 ]] 
+then 
+ echo "$1 é uma dirétoria." 
+else 
+ echo "$1 não é uma dirétoria" 
+fi 
+if [[ -r $1 ]] 
+then 
+ echo "$1 é readable." 
+else 
+ echo "$1 não é readable" 
+fi
+if [[ -w $1 ]] 
+then 
+ echo "$1 é writeable." 
+else 
+ echo "$1 não é writeable" 
+fi 
+if [[ -x $1 ]] 
+then 
+ echo "$1 é executable." 
+else 
+ echo "$1 não é executable" 
+fi 
+echo "...done."

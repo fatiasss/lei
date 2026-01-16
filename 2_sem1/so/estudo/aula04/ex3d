@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+if ! [[ -f $1 ]];then exit 1;fi;
+
+declare -a array
+declare -a sorted
+
+readarray -t array < <(tr -d '\r' < "$1")
+
+readarray -t sorted < <(printf '%s\n' "${array[@]}" | LC_ALL=C sort -n)
+
+for number in "${sorted[@]}";do
+  echo "$number"
+done;
