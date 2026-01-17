@@ -1,0 +1,1 @@
+σ count_medicos_dif≥2 (γ paciente.numUtente, prescricao.numMedico; count(prescricao.numMedico)->count_medicos_dif (prescricao⨝prescricao.numUtente=paciente.numUtente paciente))

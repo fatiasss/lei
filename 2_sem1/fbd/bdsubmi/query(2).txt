@@ -1,0 +1,4 @@
+((π Man_Ssn.Ssn (ρ Man_Ssn (π Mgr_ssn department⨝Mgr_ssn=Ssn π Ssn employee)))- π Essn dependent)
+⨝Man_Ssn.Ssn=Ssn 
+π Fname, Minit, Lname, Ssn employee
+

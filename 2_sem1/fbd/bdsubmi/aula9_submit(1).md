@@ -1,0 +1,427 @@
+# BD: Guião 9
+
+
+## ​9.1. Complete a seguinte tabela.
+Complete the following table.
+
+| #    | Query                                                                                                      | Rows  | Cost  | Pag. Reads | Time (ms) | Index used | Index Op.            | Discussion |
+| :--- | :--------------------------------------------------------------------------------------------------------- | :---- | :---- | :--------- | :-------- | :--------- | :------------------- | :--------- |
+| 1    | SELECT * from Production.WorkOrder                                                                         | 72591 | 0.484 | 531        | 1171      | …          | Clustered Index Scan |            |
+| 2    | SELECT * from Production.WorkOrder where WorkOrderID=1234                                                  |       |       |            |           |            |                      |            |
+| 3.1  | SELECT * FROM Production.WorkOrder WHERE WorkOrderID between 10000 and 10010                               |       |       |            |           |            |                      |            |
+| 3.2  | SELECT * FROM Production.WorkOrder WHERE WorkOrderID between 1 and 72591                                   |       |       |            |           |            |                      |            |
+| 4    | SELECT * FROM Production.WorkOrder WHERE StartDate = '2007-06-25'                                          |       |       |            |           |            |                      |            |
+| 5    | SELECT * FROM Production.WorkOrder WHERE ProductID = 757                                                   |       |       |            |           |            |                      |            |
+| 6.1  | SELECT WorkOrderID, StartDate FROM Production.WorkOrder WHERE ProductID = 757                              |       |       |            |           |            |                      |            |
+| 6.2  | SELECT WorkOrderID, StartDate FROM Production.WorkOrder WHERE ProductID = 945                              |       |       |            |           |            |                      |            |
+| 6.3  | SELECT WorkOrderID FROM Production.WorkOrder WHERE ProductID = 945 AND StartDate = '2006-01-04'            |       |       |            |           |            |                      |            |
+| 7    | SELECT WorkOrderID, StartDate FROM Production.WorkOrder WHERE ProductID = 945 AND StartDate = '2006-01-04' |       |       |            |           |            |                      |            |
+| 8    | SELECT WorkOrderID, StartDate FROM Production.WorkOrder WHERE ProductID = 945 AND StartDate = '2006-01-04' |       |       |            |           |            |                      |            |
+
+## ​9.2.
+
+### a)
+
+```
+CREATE TABLE mytemp (
+    rid BIGINT NOT NULL,
+    at1 INT NULL,
+    at2 INT NULL,
+    at3 INT NULL,
+    lixo varchar(100) NULL
+);
+
+ALTER TABLE mytemp 
+ADD CONSTRAINT PK_mytemp_rid PRIMARY KEY CLUSTERED (rid); 
+GO
+```
+
+### b)
+
+```
+SELECT 
+    OBJECT_NAME(ips.object_id) AS Tabela,
+    i.name AS Indice,
+    ips.index_type_desc AS Tipo_Indice,
+    ips.avg_fragmentation_in_percent AS Fragmentacao_Percentagem,
+    ips.avg_page_space_used_in_percent AS Ocupacao_Pagina_Percentagem,
+    ips.page_count AS Total_Paginas,
+    ips.record_count AS Total_Linhas
+FROM 
+    sys.dm_db_index_physical_stats(DB_ID(), OBJECT_ID('mytemp'), NULL, NULL, 'DETAILED') ips
+JOIN 
+    sys.indexes i ON ips.object_id = i.object_id AND ips.index_id = i.index_id;
+```
+
+Respostas do b):
+| Percentagem Fragmentação | Percentagem de Ocupação da Página | Total de Páginas | Total de Linhas |
+| :--- | :--- | :--- | :--- |
+| 0,347826086956522 | 99,8882752656289 | 575 | 50000 |
+| 0 | 60,3595255744996 | 2 | 575 |
+| 0 | 0,395354583642204 | 1 | 2 |
+
+### c)
+
+```
+
+DBCC DROPCLEANBUFFERS; 
+SET NOCOUNT ON;
+
+CREATE TABLE #RESULTS (FILLFACTORVALUE INT,Milissegundo INT);
+-- ----------------------------------------------------------------------
+
+
+PRINT  '>> 65'
+-- Generate random records
+
+Truncate TABLE mytemp
+
+ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 65);
+-- Record the Start Time
+
+DECLARE @start_time DATETIME = GETDATE();
+DECLARE @val as int = 1;
+DECLARE @nelem as int = 50000;
+
+PRINT 'A iniciar inserção...'
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (rid, at1, at2, at3, lixo)
+    SELECT 
+        cast((RAND(CHECKSUM(NEWID()))*@nelem*40000) as int), -- Truque para RAND()
+        cast((RAND()*@nelem) as int),
+        cast((RAND()*@nelem) as int), 
+        cast((RAND()*@nelem) as int),
+        'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    
+    SET @val = @val + 1;
+END
+
+PRINT 'Inserted ' + str(@nelem) + ' total records'
+
+ -- Duration of Insertion Process
+
+INSERT INTO #RESULTS VALUES(65, DATEDIFF(MILLISECOND, @start_time, GETDATE()));
+
+-- ----------------------------------------------------------------------
+
+
+PRINT  '>> 80'
+-- Generate random records
+
+Truncate TABLE mytemp
+
+ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 80);
+
+-- Record the Start Time
+SET @start_time = GETDATE();
+SET @val = 1;
+
+
+PRINT 'A iniciar inserção...'
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (rid, at1, at2, at3, lixo)
+    SELECT 
+        cast((RAND(CHECKSUM(NEWID()))*@nelem*40000) as int), -- Truque para RAND()
+        cast((RAND()*@nelem) as int),
+        cast((RAND()*@nelem) as int), 
+        cast((RAND()*@nelem) as int),
+        'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    
+    SET @val = @val + 1;
+END
+
+PRINT 'Inserted ' + str(@nelem) + ' total records'
+
+-- Duration of Insertion Process
+
+INSERT INTO #RESULTS VALUES(80, DATEDIFF(MILLISECOND, @start_time, GETDATE()));
+
+-- ----------------------------------------------------------------------
+
+
+PRINT  '>> 90'
+-- Generate random records
+
+Truncate TABLE mytemp
+
+ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 90);
+
+-- Record the Start Time
+SET @start_time = GETDATE();
+SET @val = 1;
+
+
+PRINT 'A iniciar inserção...'
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (rid, at1, at2, at3, lixo)
+    SELECT 
+        cast((RAND(CHECKSUM(NEWID()))*@nelem*40000) as int), -- Truque para RAND()
+        cast((RAND()*@nelem) as int),
+        cast((RAND()*@nelem) as int), 
+        cast((RAND()*@nelem) as int),
+        'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    
+    SET @val = @val + 1;
+END
+
+PRINT 'Inserted ' + str(@nelem) + ' total records'
+
+-- Duration of Insertion Process
+
+INSERT INTO #RESULTS VALUES(90, DATEDIFF(MILLISECOND, @start_time, GETDATE()));
+```
+
+### d)
+
+```
+USE AdventureWorks2012;
+GO
+
+SET NOCOUNT ON;
+
+-- 1. PREPARAÇÃO
+IF OBJECT_ID('dbo.mytemp', 'U') IS NOT NULL DROP TABLE dbo.mytemp; 
+
+-- Tabela COM Identity (conforme o teu requisito)
+CREATE TABLE mytemp (
+    rid BIGINT IDENTITY(1,1) NOT NULL, 
+    at1 INT NULL,
+    at2 INT NULL,
+    at3 INT NULL,
+    lixo varchar(100) NULL
+);
+
+-- Tabela de Resultados Melhorada (Agora guarda fragmentação e espaço)
+
+IF OBJECT_ID('tempdb..#RESULTS') IS NOT NULL DROP TABLE #RESULTS;
+CREATE TABLE #RESULTS (
+    FillFactorValue INT, 
+    Milissegundos INT, 
+    Fragmentacao_Percent DECIMAL(10,2), 
+    Ocupacao_Pagina_Percent DECIMAL(10,2)
+);
+GO 
+
+-- ======================================================================
+-- BLOCO 1: FILL FACTOR 65
+-- ======================================================================
+PRINT '>> A testar Fill Factor 65...';
+
+DECLARE @start_time DATETIME;
+DECLARE @val INT = 1;
+DECLARE @nelem INT = 50000;
+DECLARE @time_taken INT;
+
+TRUNCATE TABLE mytemp;
+
+-- Aplicar Fill Factor 65
+IF NOT EXISTS (SELECT * FROM sys.indexes WHERE name = 'PK_mytemp_rid')
+    ALTER TABLE mytemp ADD CONSTRAINT PK_mytemp_rid PRIMARY KEY CLUSTERED (rid) WITH (FILLFACTOR = 65);
+ELSE
+    ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 65);
+
+SET @start_time = GETDATE();
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (at1, at2, at3, lixo)
+    SELECT cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), 'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    SET @val = @val + 1;
+END
+
+SET @time_taken = DATEDIFF(MILLISECOND, @start_time, GETDATE());
+
+-- CAPTURAR ESTATÍSTICAS E GUARDAR NA TABELA
+INSERT INTO #RESULTS (FillFactorValue, Milissegundos, Fragmentacao_Percent, Ocupacao_Pagina_Percent)
+SELECT TOP 1 
+    65, 
+    @time_taken, 
+    avg_fragmentation_in_percent, 
+    avg_page_space_used_in_percent
+FROM sys.dm_db_index_physical_stats(DB_ID(), OBJECT_ID('mytemp'), NULL, NULL, 'DETAILED')
+WHERE index_level = 0; -- Nível 0 = Nível Folha (onde estão os dados)
+
+GO 
+
+-- ======================================================================
+-- BLOCO 2: FILL FACTOR 80
+-- ======================================================================
+PRINT '>> A testar Fill Factor 80...';
+
+DECLARE @start_time DATETIME;
+DECLARE @val INT = 1;
+DECLARE @nelem INT = 50000;
+DECLARE @time_taken INT;
+
+TRUNCATE TABLE mytemp;
+ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 80);
+
+SET @start_time = GETDATE();
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (at1, at2, at3, lixo)
+    SELECT cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), 'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    SET @val = @val + 1;
+END
+
+SET @time_taken = DATEDIFF(MILLISECOND, @start_time, GETDATE());
+
+INSERT INTO #RESULTS (FillFactorValue, Milissegundos, Fragmentacao_Percent, Ocupacao_Pagina_Percent)
+SELECT TOP 1 80, @time_taken, avg_fragmentation_in_percent, avg_page_space_used_in_percent
+FROM sys.dm_db_index_physical_stats(DB_ID(), OBJECT_ID('mytemp'), NULL, NULL, 'DETAILED')
+WHERE index_level = 0;
+
+GO 
+
+-- ======================================================================
+-- BLOCO 3: FILL FACTOR 90
+-- ======================================================================
+PRINT '>> A testar Fill Factor 90...';
+
+DECLARE @start_time DATETIME;
+DECLARE @val INT = 1;
+DECLARE @nelem INT = 50000;
+DECLARE @time_taken INT;
+
+TRUNCATE TABLE mytemp;
+ALTER INDEX PK_mytemp_rid ON mytemp REBUILD WITH (FILLFACTOR = 90);
+
+SET @start_time = GETDATE();
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (at1, at2, at3, lixo)
+    SELECT cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), cast((RAND()*@nelem) as int), 'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    SET @val = @val + 1;
+END
+
+SET @time_taken = DATEDIFF(MILLISECOND, @start_time, GETDATE());
+
+INSERT INTO #RESULTS (FillFactorValue, Milissegundos, Fragmentacao_Percent, Ocupacao_Pagina_Percent)
+SELECT TOP 1 90, @time_taken, avg_fragmentation_in_percent, avg_page_space_used_in_percent
+FROM sys.dm_db_index_physical_stats(DB_ID(), OBJECT_ID('mytemp'), NULL, NULL, 'DETAILED')
+WHERE index_level = 0;
+
+GO
+
+-- ======================================================================
+-- RESULTADOS FINAIS
+-- ======================================================================
+SELECT * FROM #RESULTS ORDER BY FillFactorValue;
+```
+
+### e)
+
+```
+SET NOCOUNT ON;
+
+-- Tabela para guardar os tempos finais
+IF OBJECT_ID('tempdb..#RESULTS_INDEX') IS NOT NULL DROP TABLE #RESULTS_INDEX;
+CREATE TABLE #RESULTS_INDEX (Cenario VARCHAR(50), Milissegundos INT);
+GO
+
+-- ======================================================================
+-- CENÁRIO 1: APENAS PK 
+-- ======================================================================
+PRINT '>> A testar Cenário 1: Sem índices extra...';
+
+
+IF OBJECT_ID('dbo.mytemp', 'U') IS NOT NULL DROP TABLE dbo.mytemp; 
+CREATE TABLE mytemp (
+    rid BIGINT IDENTITY(1,1) NOT NULL, 
+    at1 INT NULL,
+    at2 INT NULL,
+    at3 INT NULL,
+    lixo varchar(100) NULL
+);
+
+-- Criar apenas a PK (Clustered)
+ALTER TABLE mytemp ADD CONSTRAINT PK_mytemp_rid PRIMARY KEY CLUSTERED (rid);
+
+
+DECLARE @start_time DATETIME = GETDATE();
+DECLARE @val INT = 1;
+DECLARE @nelem INT = 50000; -- 50 mil registos
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (at1, at2, at3, lixo)
+    SELECT 
+        cast((RAND()*@nelem) as int),
+        cast((RAND()*@nelem) as int), 
+        cast((RAND()*@nelem) as int),
+        'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    SET @val = @val + 1;
+END
+
+INSERT INTO #RESULTS_INDEX VALUES ('Sem Indices Extra', DATEDIFF(MILLISECOND, @start_time, GETDATE()));
+GO
+
+-- ======================================================================
+-- CENÁRIO 2: COM ÍNDICES EM TODAS AS COLUNAS
+-- ======================================================================
+PRINT '>> A testar Cenário 2: Com índices em tudo...';
+
+
+IF OBJECT_ID('dbo.mytemp', 'U') IS NOT NULL DROP TABLE dbo.mytemp; 
+CREATE TABLE mytemp (
+    rid BIGINT IDENTITY(1,1) NOT NULL, 
+    at1 INT NULL,
+    at2 INT NULL,
+    at3 INT NULL,
+    lixo varchar(100) NULL
+);
+
+ALTER TABLE mytemp ADD CONSTRAINT PK_mytemp_rid PRIMARY KEY CLUSTERED (rid);
+
+-- CRIAR OS ÍNDICES EXTRA (O PESO ADICIONAL)
+PRINT '   A criar índices...'
+CREATE NONCLUSTERED INDEX IX_mytemp_at1 ON mytemp(at1);
+CREATE NONCLUSTERED INDEX IX_mytemp_at2 ON mytemp(at2);
+CREATE NONCLUSTERED INDEX IX_mytemp_at3 ON mytemp(at3);
+CREATE NONCLUSTERED INDEX IX_mytemp_lixo ON mytemp(lixo);
+
+
+DECLARE @start_time DATETIME = GETDATE();
+DECLARE @val INT = 1;
+DECLARE @nelem INT = 50000;
+
+WHILE @val <= @nelem
+BEGIN
+    INSERT INTO mytemp (at1, at2, at3, lixo)
+    SELECT 
+        cast((RAND()*@nelem) as int),
+        cast((RAND()*@nelem) as int), 
+        cast((RAND()*@nelem) as int),
+        'lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo...lixo';
+    SET @val = @val + 1;
+END
+
+INSERT INTO #RESULTS_INDEX VALUES ('Com Indices Extra', DATEDIFF(MILLISECOND, @start_time, GETDATE()));
+GO
+
+-- ======================================================================
+-- RESULTADOS FINAIS
+-- ======================================================================
+SELECT * FROM #RESULTS_INDEX;
+
+| Cenário | Milissegundos |
+| :--- | :--- |
+| Sem Índices Extra | 13173 |
+| Com Índices Extra | 15203 |
+
+```
+Resposta ao e)
+Podemos ver que a criação de Índices extra ocasiona um considerável aumento no tempo de inserção.
+
+## ​9.3.
+
+```
+```

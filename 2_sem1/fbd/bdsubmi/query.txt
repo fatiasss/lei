@@ -1,0 +1,1 @@
+γ{Pno; SUM(Hours)}  works_on⨝Pnumber=Pno project

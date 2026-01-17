@@ -1,0 +1,63 @@
+CREATE TABLE IVATax (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(64) NOT NULL
+);
+
+
+CREATE TABLE [Product] (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(64) NOT NULL,
+    Price DECIMAL(10,2) NOT NULL,
+    IVATaxID INT NOT NULL,
+    FOREIGN KEY (IVATaxID) REFERENCES IVATax(ID)
+);
+
+
+CREATE TABLE Storage (
+    ID INT IDENTITY(1,1) PRIMARY KEY
+);
+
+CREATE TABLE StockProdStorage (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    StorageID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    FOREIGN KEY (StorageID) REFERENCES Storage(ID),
+    FOREIGN KEY (ProductID) REFERENCES [Product](ID)
+);
+
+
+CREATE TABLE PaymentType (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    Name VARCHAR(64) NOT NULL
+);
+
+
+CREATE TABLE Supplier (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    NIF VARCHAR(15) Unique,
+    Name VARCHAR(64) NOT NULL,
+    Address VARCHAR(128),
+    Email VARCHAR(128),
+    PaymentTypeID INT NOT NULL,
+    FOREIGN KEY (PaymentTypeID) REFERENCES PaymentType(ID)
+);
+
+
+CREATE TABLE [Order] (
+    ID INT IDENTITY(1,1) PRIMARY KEY,
+    SupplierNIF VARCHAR(15) NOT NULL,
+    OrderDate DATE NOT NULL,
+    FOREIGN KEY (SupplierNIF) REFERENCES Supplier(NIF)
+);
+
+
+CREATE TABLE Item (
+    OrderID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    PRIMARY KEY (OrderID, ProductID),
+    FOREIGN KEY (OrderID) REFERENCES [Order](ID),
+    FOREIGN KEY (ProductID) REFERENCES [Product](ID)
+);
+GO

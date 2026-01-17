@@ -1,0 +1,1 @@
+π Ssn←Mgr_Ssn department

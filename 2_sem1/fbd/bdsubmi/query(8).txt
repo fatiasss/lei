@@ -1,0 +1,4 @@
+
+γ Ssn; count(temp.Ssn)-> dependent_count 
+
+ρ temp employee⨝Ssn=Essn dependent

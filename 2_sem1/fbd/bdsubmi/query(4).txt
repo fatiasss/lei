@@ -1,0 +1,1 @@
+  π Fname, Last_name←Lname, Ssn←Ssn, Salary←Salary (σ Salary≥1300 ∧ Dno=2 employee)

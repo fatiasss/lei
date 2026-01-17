@@ -1,0 +1,2 @@
+(employee⨝employee.Super_ssn=boss.Ssn boss)
+ρ boss (σ(Fname='Carlos'∧ Minit='D'∧ Lname='Gomes') (employee))
